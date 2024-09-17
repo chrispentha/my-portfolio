@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="en" version="1.0.0">
+
+<head>
+    <!-- Meta Charset -->
+    <meta charset="UTF-8">
+
+    <!-- Meta Setup and Security -->
+    <!-- <meta http-equiv="content-language" content="en"> -->
+    <!-- <meta http-equiv="content-language" content="id"> -->
+    <meta http-equiv="Cache-Control" content="public, max-age=31536000">
+    <meta http-equiv="Permissions-Policy" content="geolocation=(), microphone=()">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="X-Frame-Options" content="DENY">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="Strict-Transport-Security" content="max-age=31536000; includeSubDomains">
+    <!-- <meta http-equiv="Content-Security-Policy" content="default-src *; 
+        script-src *; style-src *; font-src *;"> -->
+
+    <!-- Meta Profile -->
+    <meta name="generator" content="Visual Studio Code">
+    <meta name="author" content="Christian Penthatius Yudianto">
+    <meta name="publisher" content="Christian Penthatius Yudianto">
+    <meta name="copyright" content="© 2024 Christian Penthatius Yudianto">
+    <meta name="application-name" content="Christian Penthatius Yudianto - Web Portfolio">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no, 
+        viewport-fit=cover">
+    <meta name="description" 
+        content="Christian Penthatius Yudianto, a Senior Software Engineer specializing in 
+        full-stack development and cloud solutions. Over 5 years of experience in building scalable, 
+        efficient systems that drive innovation and business success.">
+    <meta name="keywords" content="Senior Software Engineer, Full Stack Developer, Cloud Solutions, 
+        Web Development, API Development, Christian Penthatius Yudianto">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="distribution" content="global">
+    <meta name="revisit-after" content="7 days">
+    <meta name="rating" content="general">
+    <meta name="robots" content="index, follow">
+    <meta name="googlebot" content="index, follow">
+    <meta name="bingbot" content="index, follow">
+    <meta name="yandex" content="index, follow">
+    <meta name="referrer" content="no-referrer">
+    <!-- <meta name="robots" content="noindex, nofollow"> -->
+    <!-- <meta name="googlebot" content="noindex, nofollow"> -->
+    <!-- <meta name="bingbot" content="noindex, nofollow"> -->
+    <!-- <meta name="yandex" content="noindex, nofollow"> -->
+    <!-- <meta name="referrer" content="strict-origin"> -->
+    <!-- <meta name="referrer" content="strict-origin-when-cross-origin"> -->
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:site_name" content="Christian Penthatius Yudianto - Web Portfolio">
+    <meta property="og:title" content="Christian Penthatius Yudianto - Senior Software Engineer | 
+        Full Stack & Cloud Expert">
+    <meta property="og:description" content="Christian Penthatius Yudianto, a Senior Software Engineer 
+        specializing in full-stack development and cloud solutions.">
+    <meta property="og:image" content="https://christian-penthatius.com/assets/profile-photo.png">
+    <meta property="og:url" content="https://christian-penthatius.com">
+    <meta property="og:type" content="website">
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Christian Penthatius Yudianto - Senior Software Engineer | 
+        Full Stack & Cloud Expert">
+    <meta name="twitter:description" content="Christian Penthatius Yudianto, a Senior Software Engineer 
+        specializing in full-stack development and cloud solutions.">
+    <meta name="twitter:image" content="https://christian-penthatius.com/assets/profile-photo.png">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://christian-penthatius.com">
+
+    <!-- Pre-Connect -->
+    <link rel="preconnect" href="https://trusted-scripts.com">
+    <link rel="preconnect" href="https://trusted-styles.com">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/favicon.ico">
+
+    <!-- Title -->
+    <title>Christian Penthatius Yudianto - Senior Software Engineer | Full Stack & Cloud Expert</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="css/animate.min.css">
+    <link rel="stylesheet" href="css/aos.css">
+    <link rel="stylesheet" href="css/site.css">
+
+    <!-- Structured Data for SEO -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Christian Penthatius Yudianto",
+        "jobTitle": "Senior Software Engineer",
+        "description": "Specializing in full-stack development and cloud solutions",
+        "url": "https://christian-penthatius.com",
+        "image": "https://christian-penthatius.com/assets/profile-photo.png",
+        "sameAs": [
+            "https://linkedin.com/in/chrispentha",
+            "https://github.com/chrispentha"
+        ]
+    }
+    </script>
+</head>
+
+<body>
+
+    <!-- Loading Page -->
+    <div id="loading-spinner-init">
+        <div class="spinner-border text-primary" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+    </div>
+
+    <div id="main-content">
+
+        <!-- English Ver -->
+        <div class="lang-en">
+
+            <!-- Navbar -->
+            <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+                <div class="container">
+                    <a class="navbar-brand" href="#hero">Christian's Portfolio</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" 
+                        data-bs-target="#navbarNav">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav ms-auto">
+                            <li class="nav-item">
+                                <a class="nav-link" href="#about">About</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#solutions">Your Solutions</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#skills">Skills</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#portfolio">Portfolio</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#contact">Contact</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link cursor-default" href="javascript:void(0);">&nbsp;</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="javascript:void(0);" class="toggle-dark-mode" id="darkModeToggle">
+                                    <i class="fas fa-moon"></i>
+                                </a>
+                            </li>
+                            <!-- Language Switcher -->
+                            <li class="nav-item dropdown text-right">
+                                <a class="nav-link dropdown-toggle" href="javascript:void(0);" 
+                                    id="languageDropdown" role="button" data-bs-toggle="dropdown" 
+                                    aria-expanded="false">
+                                    Language
+                                </a>
+                                <ul class="dropdown-menu dropdown-bg-grey" aria-labelledby="languageDropdown">
+                                    <li>
+                                        <a class="dropdown-item language-option lang-selected" 
+                                            href="javascript:void(0);" data-lang="en">
+                                            <img src="assets/flag-english.png" alt="English Flag" 
+                                                class="flag-en">
+                                            English
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item language-option" href="javascript:void(0);" 
+                                            data-lang="id">
+                                            <img src="assets/flag-indonesia.png" alt="Indonesian Flag" 
+                                                class="flag-id">
+                                            Indonesian
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+
+            <!-- Hero Section -->
+            <section id="hero" class="hero" data-aos="fade-in" data-aos-delay="100">
+                <div class="container">
+
+                    <!-- Profile photo -->
+                    <img id="main-profile" src="assets/profile-photo.png"
+                        alt="Christian Penthatius Yudianto - Senior Software Engineer Profile Photo"
+                        class="profile-photo" data-aos="fade-in" data-aos-delay="200">
+
+                    <!-- Info section -->
+                    <div class="info" data-aos="fade-in" data-aos-delay="300">
+                        <h1>Christian Penthatius Yudianto</h1>
+                        <p>Crafting Scalable Software Solutions | Full Stack & Cloud Expert</p>
+                        <a href="#portfolio" class="btn btn-primary">Explore My Projects</a>
+                    </div>
+
+                </div>
+            </section>
+
+            <hr class="custom-separator" />
+
+            <!-- About Section -->
+            <section id="about" class="section" data-aos="fade-in" data-aos-delay="100">
+                <div class="container">
+                    <h2 class="section-title" data-aos="fade-in" data-aos-delay="200">About</h2>
+                    <p class="text-center" data-aos="fade-in" data-aos-delay="300">
+                        With over 5 years of proven expertise as a Senior Software Engineer, I specialize 
+                        in building full-stack applications and cloud solutions that drive efficiency and 
+                        innovation. My work focuses on creating scalable systems that streamline operations, 
+                        cut costs, and enhance user experiences. By partnering with me, you'll gain a 
+                        strategic technology partner dedicated to delivering impactful, future-proof 
+                        solutions tailored to your business needs. <br />
+                        Check out my <a href="#portfolio">portfolio</a> 
+                        to see my recent projects.
+                    </p>
+                </div>
+            </section>
+
+            <hr class="custom-separator" />
+
+            <!-- Solutions for Your Business Section -->
+            <section id="solutions" class="section" data-aos="fade-in" data-aos-delay="100">
+                <div class="container">
+                    <h2 class="section-title text-center" data-aos="fade-in" data-aos-delay="200">
+                        Solutions for Your Business</h2>
+                    <div class="row text-center">
+                        <!-- Hook -->
+                        <p class="lead mb-50px" data-aos="fade-in" data-aos-delay="300">
+                            Facing business challenges? The right solution can drive efficiency and growth.
+                        </p>
+
+                        <!-- Problem Solving Icons and Benefits -->
+                        <div class="col-md-4" data-aos="fade-in" data-aos-delay="400">
+                            <i class="fas fa-tools fa-3x mb-3"></i>
+                            <h4>Tailored Solutions</h4>
+                            <p>Custom systems designed to fit your unique business needs.</p>
+                        </div>
+
+                        <div class="col-md-4" data-aos="fade-in" data-aos-delay="500">
+                            <i class="fas fa-chart-line fa-3x mb-3"></i>
+                            <h4>Increased Efficiency</h4>
+                            <p>Streamline processes, reduce costs, and boost productivity.</p>
+                        </div>
+
+                        <div class="col-md-4" data-aos="fade-in" data-aos-delay="600">
+                            <i class="fas fa-expand fa-3x mb-3"></i>
+                            <h4>Scalability</h4>
+                            <p>Solutions that grow as your business expands.</p>
+                        </div>
+
+                        <div class="col-md-4 mt-4" data-aos="fade-in" data-aos-delay="700">
+                            <i class="fas fa-bolt fa-3x mb-3"></i>
+                            <h4>Speed & Reliability</h4>
+                            <p>Fast, reliable deployments with CI/CD pipelines.</p>
+                        </div>
+
+                        <div class="col-md-4 mt-4" data-aos="fade-in" data-aos-delay="800">
+                            <i class="fas fa-shield-alt fa-3x mb-3"></i>
+                            <h4>Future-Proofing</h4>
+                            <p>Cutting-edge technology that adapts to tomorrow’s needs.</p>
+                        </div>
+
+                        <div class="col-md-4 mt-4" data-aos="fade-in" data-aos-delay="900">
+                            <i class="fas fa-sync-alt fa-3x mb-3"></i>
+                            <h4>Seamless Integration</h4>
+                            <p>Integrate with existing systems effortlessly, reducing disruption by 40% 
+                                and ensuring smooth operations.</p>
+                        </div>
+
+                        <!-- Call to Action -->
+                        <div class="col-md-12 mt-5" data-aos="fade-in" data-aos-delay="900">
+                            <p class="lead">
+                                Ready to unlock the full potential of your business? Let's talk!
+                            </p>
+                            <a href="#contact" class="btn btn-primary">Get In Touch</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <hr class="custom-separator" />
+
+            <!-- Skills Section -->
+            <section id="skills" class="section" data-aos="fade-in" data-aos-delay="100">
+                <div class="container">
+                    <h2 class="section-title" data-aos="fade-in" data-aos-delay="200">Skills</h2>
+                    <div class="row text-center">
+
+                        <!-- Skill 1 -->
+                        <div class="col-md-4" data-aos="fade-in" data-aos-delay="300">
+                            <i class="fas fa-laptop-code fa-3x mb-3"></i>
+                            <h4>Full Stack Development</h4>
+                            <p>
+                                Mastering the art of full-stack development, I build powerful web 
+                                applications using .NET, C#, JavaScript, SQL Server, and Blazor. 
+                                My work transforms business needs into intuitive, scalable, and 
+                                high-performing solutions.
+                            </p>
+                        </div>
+
+                        <!-- Skill 2 -->
+                        <div class="col-md-4" data-aos="fade-in" data-aos-delay="400">
+                            <i class="fas fa-cloud fa-3x mb-3"></i>
+                            <h4>Cloud Solutions</h4>
+                            <p>
+                                Unlock the full potential of cloud technology with my expertise in AWS and 
+                                cloud migration. I optimize infrastructure to ensure scalability, performance, 
+                                and cost-effectiveness for businesses of all sizes.
+                            </p>
+                        </div>
+
+                        <!-- Skill 3 -->
+                        <div class="col-md-4" data-aos="fade-in" data-aos-delay="500">
+                            <i class="fas fa-cogs fa-3x mb-3"></i>
+                            <h4>CI/CD & Automation</h4>
+                            <p>
+                                Streamlining deployments through CI/CD pipelines and automation, I ensure 
+                                faster, high-quality releases while minimizing errors. Let's enhance your 
+                                development workflow and accelerate your time to market.
+                            </p>
+                        </div>
+
+                        <!-- Skill 4 -->
+                        <div class="col-md-4 mt-4" data-aos="fade-in" data-aos-delay="600">
+                            <i class="fas fa-database fa-3x mb-3"></i>
+                            <h4>Database Management</h4>
+                            <p>
+                                Skilled in SQL Server, PostgreSQL, and database optimization techniques to 
+                                ensure fast query performance.
+                            </p>
+                        </div>
+
+                        <!-- Skill 5 -->
+                        <div class="col-md-4 mt-4" data-aos="fade-in" data-aos-delay="700">
+                            <i class="fas fa-network-wired fa-3x mb-3"></i>
+                            <h4>API Development</h4>
+                            <p>
+                                Delivering secure, high-performance APIs using JWT, I empower seamless data 
+                                exchange, boosting integration efficiency by 70%.
+                            </p>
+                        </div>
+
+                        <!-- Skill 6 -->
+                        <div class="col-md-4 mt-4" data-aos="fade-in" data-aos-delay="800">
+                            <i class="fas fa-tools fa-3x mb-3"></i>
+                            <h4>Version Control & Collaboration</h4>
+                            <p>
+                                Experience with Git, GitHub, Bitbucket, and SVN for effective branching 
+                                strategies and team collaboration.
+                            </p>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+            <hr class="custom-separator" />
+
+            <!-- Portfolio Section -->
+            <section id="portfolio" class="section" data-aos="fade-in" data-aos-delay="100">
+                <div class="container">
+                    <h2 class="section-title" data-aos="fade-in" data-aos-delay="200">Portfolio</h2>
+                    <!-- Carousel -->
+                    <div id="portfolioCarousel" class="carousel slide">
+                        <div class="carousel-inner">
+
+                            <!-- First Slide -->
+                            <div class="carousel-item active">
+                                <div class="row">
+
+                                    <!-- Project 1 -->
+                                    <div class="col-md-4 mb-4">
+                                        <div class="card">
+                                            <img src="project1.jpg" class="card-img-top"
+                                                alt="EMR System for Siloam Hospitals">
+                                            <div class="card-body">
+                                                <h5 class="card-title">
+                                                    EMR System - Siloam Hospitals
+                                                </h5>
+                                                <p class="card-text">
+                                                    Architected a next-gen Electronic Medical Record
+                                                    (EMR) system for 40+ hospitals, dramatically improving 
+                                                    patient documentation by 40% and accelerating diagnosis 
+                                                    accuracy by 30%. This solution is streamlining healthcare 
+                                                    workflows and enhancing patient care.
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Project 2 -->
+                                    <div class="col-md-4 mb-4">
+                                        <div class="card">
+                                            <img src="project2.jpg" class="card-img-top"
+                                                alt="Hospital Information System for Media Tiga Warna">
+                                            <div class="card-body">
+                                                <h5 class="card-title">
+                                                    Hospital Information System - Media Tiga Warna
+                                                </h5>
+                                                <p class="card-text">
+                                                    Engineered a robust HIS that manages 20,000 daily
+                                                    transactions and reduces manual errors by 50%.
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Project 3 -->
+                                    <div class="col-md-4 mb-4">
+                                        <div class="card">
+                                            <img src="project3.jpg" class="card-img-top"
+                                                alt="ERP System for Cahaya Manunggal">
+                                            <div class="card-body">
+                                                <h5 class="card-title">
+                                                    ERP System - Cahaya Manunggal
+                                                </h5>
+                                                <p class="card-text">
+                                                    Developed a central ERP system for real-time sales,
+                                                    inventory, and finance data management, enhancing 
+                                                    decision-making by 25%.
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Second Slide -->
+                            <div class="carousel-item">
+                                <div class="row">
+
+                                    <!-- Project 4 -->
+                                    <div class="col-md-4 mb-4">
+                                        <div class="card">
+                                            <img src="project4.jpg" class="card-img-top" 
+                                                alt="Project 4 Title">
+                                            <div class="card-body">
+                                                <h5 class="card-title">
+                                                    Project 4 Title
+                                                </h5>
+                                                <p class="card-text">
+                                                    Description for Project 4.
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Project 5 -->
+                                    <div class="col-md-4 mb-4">
+                                        <div class="card">
+                                            <img src="project5.jpg" class="card-img-top" 
+                                                alt="Project 5 Title">
+                                            <div class="card-body">
+                                                <h5 class="card-title">
+                                                    Project 5 Title
+                                                </h5>
+                                                <p class="card-text">
+                                                    Description for Project 5.
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Project 6 -->
+                                    <div class="col-md-4 mb-4">
+                                        <div class="card">
+                                            <img src="project6.jpg" class="card-img-top" 
+                                                alt="Project 6 Title">
+                                            <div class="card-body">
+                                                <h5 class="card-title">
+                                                    Project 6 Title
+                                                </h5>
+                                                <p class="card-text">
+                                                    Description for Project 6.
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Third Slide -->
+                            <div class="carousel-item">
+                                <div class="row">
+
+                                    <!-- Project 7 -->
+                                    <div class="col-md-4 mb-4">
+                                        <div class="card">
+                                            <img src="project7.jpg" class="card-img-top" 
+                                                alt="Project 7 Title">
+                                            <div class="card-body">
+                                                <h5 class="card-title">
+                                                    Project 7 Title
+                                                </h5>
+                                                <p class="card-text">
+                                                    Description for Project 7.
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Project 8 -->
+                                    <div class="col-md-4 mb-4">
+                                        <div class="card">
+                                            <img src="project8.jpg" class="card-img-top" 
+                                                alt="Project 8 Title">
+                                            <div class="card-body">
+                                                <h5 class="card-title">
+                                                    Project 8 Title
+                                                </h5>
+                                                <p class="card-text">
+                                                    Description for Project 8.
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Project 9 -->
+                                    <div class="col-md-4 mb-4">
+                                        <div class="card">
+                                            <img src="project9.jpg" class="card-img-top" 
+                                                alt="Project 9 Title">
+                                            <div class="card-body">
+                                                <h5 class="card-title">
+                                                    Project 9 Title
+                                                </h5>
+                                                <p class="card-text">
+                                                    Description for Project 9.
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <!-- Carousel Controls -->
+                            <a id="carousel-prev" class="carousel-control-prev" href="#portfolioCarousel" 
+                                role="button" data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Prev</span>
+                            </a>
+                            <a id="carousel-next" class="carousel-control-next" href="#portfolioCarousel" 
+                                role="button" data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Next</span>
+                            </a>
+
+                        </div>
+                    </div>
+
+                    <div class="text-center mt-4">
+                        <a href="#contact" class="btn btn-primary" data-aos="fade-in" data-aos-delay="300">
+                            Get In Touch
+                        </a>
+                    </div>
+
+            </section>
+
+            <hr class="custom-separator" />
+
+            <!-- Contact Section -->
+            <section id="contact" class="section last-section" data-aos="fade-in" data-aos-delay="100">
+                <div class="container">
+                    <h2 class="section-title" data-aos="fade-in" data-aos-delay="200">Contact</h2>
+                    <div class="row">
+                        <div class="col-md-6 mb-4" data-aos="fade-in" data-aos-delay="300">
+                            <p>
+                                For inquiries, collaborations, or just to say hello, feel free to reach out 
+                                to me through:
+                            </p>
+                            <ul class="contact-info">
+                                <li>
+                                    <i class="fas fa-envelope"></i> 
+                                    <a href="mailto:christian.penthatius@gmail.com">
+                                        christian.penthatius@gmail.com
+                                    </a>
+                                </li>
+                                <li>
+                                    <i class="fab fa-linkedin"></i> 
+                                    <a href="https://linkedin.com/in/chrispentha" target="_blank">
+                                        Christian Penthatius Yudianto
+                                    </a>
+                                </li>
+                                <li>
+                                    <i class="fab fa-github"></i> 
+                                    <a href="https://github.com/chrispentha" target="_blank">
+                                        @chrispentha
+                                    </a>
+                                </li>
+                                <li>
+                                    <i class="fas fa-phone"></i> 
+                                    +62 878-0881-2900
+                                </li>
+                                <li>
+                                    <i class="fas fa-map-marker-alt"></i> 
+                                    Tangerang, Indonesia
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6" data-aos="fade-in" data-aos-delay="400">
+                            <form id="contact-form" class="contact-form" data-aos="fade-in" 
+                                data-aos-delay="300">
+                                <div class="form-group">
+                                    <label for="name">Name</label>
+                                    <input id="name" type="text" name="name" class="form-control" 
+                                        required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="email">Email</label>
+                                    <input id="email" type="email" name="email" class="form-control" 
+                                        required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="message">Message</label>
+                                    <textarea id="message" name="message" class="form-control" rows="5"
+                                        required></textarea>
+                                </div>
+                                <button id="send-button" type="submit" class="btn btn-primary btn-max-width">
+                                    <span id="button-text">
+                                        <i class="fa fa-paper-plane"></i>
+                                        Send Message
+                                    </span>
+                                    <span id="loading-spinner">
+                                        <i class="fa fa-spinner fa-spin"></i>
+                                    </span>
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Footer -->
+            <footer>
+                <p>
+                    &copy; 2024 Christian Penthatius Yudianto. All Rights Reserved.
+                </p>
+            </footer>
+
+            <!-- WhatsApp Sticky Button -->
+            <a id="wa-button" href="javascript:void(0);" class="sticky-whatsapp">
+                <i class="fab fa-whatsapp"></i>
+            </a>
+
+        </div>
+
+    </div>
+
+    <script defer src="js/bootstrap.bundle.min.js"></script>
+    <script defer src="js/jquery.min.js"></script>
+    <script defer src="js/popper.min.js"></script>
+    <script defer src="js/aos.js"></script>
+    <script defer src="js/sweet-alert.js"></script>
+    <script defer src="js/email.min.js"></script>
+    <script defer src="js/site.js"></script>
+
+</body>
+
+</html>

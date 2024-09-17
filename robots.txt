@@ -1,0 +1,3 @@
+User-agent: *
+Disallow:
+Sitemap: https://christian-penthatius.com/sitemap.xml
