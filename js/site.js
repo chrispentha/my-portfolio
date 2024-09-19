@@ -26,6 +26,60 @@ window.onload = function () {
 };
 
 $(document).ready(function () {
+    // Functions
+    function showLanguage(lang) {
+        $('.lang-en, .lang-id').hide();
+        $('.lang-' + lang).show();
+    }
+
+    function redirectBasedOnLanguage(lang) {
+        if (lang === 'en') {
+            window.location.href = 'index.html';
+            return;
+        } else if (lang === 'id') {
+            window.location.href = 'index-indo.html';
+            return;
+        }
+
+        // Default Page if: lang === null
+        window.location.href = 'index.html';
+    }
+
+    function swalShow(isSuccess, title, message) {
+        Swal.fire({
+            icon: (isSuccess ? 'success' : 'error'),
+            title: title,
+            text: message,
+            timer: 3000,
+            showConfirmButton: true,
+            timerProgressBar: true,
+            confirmButtonColor: (isSuccess ? '#28a745' : '#dc3545')
+        }).then(() => {
+            // Re-enable the button and reset text
+            sendButton.disabled = false;
+            buttonText.style.display = 'inline-block';
+            loadingSpinner.style.display = 'none';
+
+            if (isSuccess) {
+                document.getElementById('name').value = '';
+                document.getElementById('email').value = '';
+                document.getElementById('message').value = '';
+            }
+        });
+    }
+
+    // Toggle Menu
+    const toggleButton = document.querySelector('.navbar-toggler');
+    const menu = document.querySelector('.navbar-collapse');
+
+    document.addEventListener('click', (event) => {
+        if (!toggleButton.classList.contains('collapsed')
+            && menu.classList.contains('show')
+            && !event.target.closest('.nav-item.dropdown')) {
+            toggleButton.click();
+        }
+    });
+
     // Set default language to English
     var storedLang = localStorage.getItem('preferredLang') || 'en';
     showLanguage(storedLang);
@@ -45,24 +99,6 @@ $(document).ready(function () {
         localStorage.setItem('preferredLang', selectedLang);
         redirectBasedOnLanguage(selectedLang);
     });
-
-    function showLanguage(lang) {
-        $('.lang-en, .lang-id').hide();
-        $('.lang-' + lang).show();
-    }
-
-    function redirectBasedOnLanguage(lang) {
-        if (lang === 'en') {
-            window.location.href = 'index.html';
-            return;
-        } else if (lang === 'id') {
-            window.location.href = 'index-indo.html';
-            return;
-        }
-
-        // Default Page if: lang === null
-        window.location.href = 'index.html';
-    }
 
     // Handle Carousel
     var myCarousel = document.querySelector('#portfolioCarousel');
@@ -108,9 +144,9 @@ $(document).ready(function () {
         event.preventDefault(); // Prevent the default form submission
 
         // Get the button elements
-        var sendButton = document.getElementById('send-button');
-        var buttonText = document.getElementById('button-text');
-        var loadingSpinner = document.getElementById('loading-spinner');
+        const sendButton = document.getElementById('send-button');
+        const buttonText = document.getElementById('button-text');
+        const loadingSpinner = document.getElementById('loading-spinner');
 
         // Disable the button and show loading spinner
         sendButton.disabled = true;
@@ -118,9 +154,9 @@ $(document).ready(function () {
         loadingSpinner.style.display = 'inline-block';
 
         // Get the form values
-        var name = document.getElementById('name').value;
-        var email = document.getElementById('email').value;
-        var message = document.getElementById('message').value;
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const message = document.getElementById('message').value;
 
         // Prepare the parameters for EmailJS
         var templateParams = {
@@ -132,45 +168,11 @@ $(document).ready(function () {
         // Send email using EmailJS
         emailjs.send('service_cto3tnm', 'template_qakrytd', templateParams)
             .then(function (response) {
-                console.log('SUCCESS!', response.status, response.text);
-                Swal.fire({
-                    icon: 'success',
-                    title: 'Message Sent!',
-                    text: 'Your message has been sent successfully!',
-                    timer: 3000,
-                    showConfirmButton: true,
-                    timerProgressBar: true,
-                    confirmButtonColor: '#28a745' // Custom green color
-                }).then(() => {
-                    // Re-enable the button and reset text
-                    sendButton.disabled = false;
-                    buttonText.style.display = 'inline-block';
-                    loadingSpinner.style.display = 'none';
-
-                    document.getElementById('name').value = '';
-                    document.getElementById('email').value = '';
-                    document.getElementById('message').value = '';
-                });
+                // console.log('SUCCESS!', response.status, response.text);
+                swalShow(true, 'Message Sent!', 'Your message has been sent successfully!');
             }, function (error) {
-                console.log('FAILED...', error);
-                Swal.fire({
-                    icon: 'error',
-                    title: 'Message Failed!',
-                    text: 'Oops, something went wrong. Please try again later.',
-                    timer: 3000,
-                    showConfirmButton: true,
-                    timerProgressBar: true,
-                    confirmButtonColor: '#dc3545' // Custom red color
-                }).then(() => {
-                    // Re-enable the button and reset text
-                    sendButton.disabled = false;
-                    buttonText.style.display = 'inline-block';
-                    loadingSpinner.style.display = 'none';
-
-                    document.getElementById('name').value = '';
-                    document.getElementById('email').value = '';
-                    document.getElementById('message').value = '';
-                });
+                // console.log('FAILED...', error);
+                swalShow(false, 'Message Failed!', 'Oops, something went wrong. Please try again later.');
             });
     });
 
