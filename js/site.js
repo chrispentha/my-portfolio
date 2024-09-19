@@ -139,14 +139,14 @@ $(document).ready(function () {
         publicKey: 'H4aakXYVmjYE0qvss',
     });
 
+    // Get the button elements
+    const sendButton = document.getElementById('send-button');
+    const buttonText = document.getElementById('button-text');
+    const loadingSpinner = document.getElementById('loading-spinner');
+
     // Send Email via EmailJS
     document.getElementById('contact-form').addEventListener('submit', function (event) {
         event.preventDefault(); // Prevent the default form submission
-
-        // Get the button elements
-        const sendButton = document.getElementById('send-button');
-        const buttonText = document.getElementById('button-text');
-        const loadingSpinner = document.getElementById('loading-spinner');
 
         // Disable the button and show loading spinner
         sendButton.disabled = true;
