@@ -90,6 +90,11 @@ body {
     opacity: 1;
 } */
 
+.nav-link.dropdown-toggle:focus {
+    outline: none;
+    box-shadow: none;
+}
+
 .flag-en {
     width: 20px;
     height: 15px;
