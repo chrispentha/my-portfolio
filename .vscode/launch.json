@@ -5,10 +5,17 @@
             "type": "node",
             "request": "launch",
             "name": "Launch Program",
-            "program": "services/server.js",
-            "restart": true,
-            "console": "integratedTerminal",
-            "internalConsoleOptions": "openOnSessionStart"
+            "skipFiles": [
+                "<node_internals>/**"
+            ],
+            "program": "${workspaceFolder}/services/server.js"
+            // "args": [
+            //     "--env",
+            //     "production"
+            // ],
+            // "env": {
+            //     "NODE_ENV": "development"
+            // }
         }
     ]
 }

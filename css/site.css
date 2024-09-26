@@ -1,5 +1,3 @@
-/* @import url('https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css'); */
-
 /*
    1. CSS [data-aos]
       Comment         = AOS ON
@@ -9,10 +7,10 @@
       Disabled false  = AOS ON
       Disabled true   = AOS OFF
 */
-[data-aos] {
+/* [data-aos] {
     opacity: 1 !important;
     transform: none !important;
-}
+} */
 
 #loading-spinner-init {
     position: fixed;
@@ -40,6 +38,13 @@
     display: none;
     opacity: 0;
     transition: opacity 1s ease;
+}
+
+#map {
+    width: 100%;
+    height: 245px;
+    border-radius: 5px;
+    margin-top: 25px;
 }
 
 #wa-button {
@@ -174,13 +179,13 @@ body {
 
 .section-title {
     font-size: 2.5rem;
-    margin-bottom: 40px;
+    margin-bottom: 35px;
     text-align: center;
     color: #343a40;
 }
 
 .last-section {
-    margin-bottom: 35px;
+    margin-bottom: 20px;
 }
 
 .portfolio-item {
@@ -249,8 +254,9 @@ footer {
     border-color: #007bff;
 }
 
-.btn-max-width {
+.btn-send-message-custom {
     width: 100%;
+    height: 50px;
 }
 
 .dark-mode .btn-primary {
@@ -491,6 +497,15 @@ footer {
 
 .contact-info li:last-child {
     margin-bottom: 0;
+}
+
+.recaptcha-warning-hide {
+    display: none;
+}
+
+.recaptcha-warning-show {
+    display: block;
+    color: red;
 }
 
 /* Media Query for screen less than 425px */
