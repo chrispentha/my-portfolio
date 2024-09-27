@@ -7,9 +7,9 @@ const path = require('path');
 const fs = require('fs');
 const { RecaptchaEnterpriseServiceClient } = require('@google-cloud/recaptcha-enterprise');
 const { LocalStorage } = require('node-localstorage');
-const localStorage = new LocalStorage('../local_storage');
+const localStorage = new LocalStorage('./services/local_storage');
 
-require('dotenv').config({ path: './config.env' });
+require('dotenv').config({ path: './services/config.env' });
 
 // Create an Express app
 const app = express();
@@ -17,10 +17,6 @@ const port = process.env.PORT;
 
 // Count Total Visitors
 const visitorFile = path.join(__dirname, 'local_storage', 'visitors');
-
-// Set up Google Cloud Recaptcha client
-const client = new RecaptchaEnterpriseServiceClient();
-const projectID = process.env.PROJECT_ID;
 
 // Google reCAPTCHA secret key
 const gRecaptchaUrl = process.env.G_RECAPTCHA_URL;
@@ -72,8 +68,7 @@ app.get('/', (req, res) => {
       file = 'index-indo.html';
       break;
     default:
-      file = 'index.html';
-      // file = 'not-found.html';
+      file = 'not-found.html';
   }
 
   res.sendFile(path.join(__dirname, '..', file), {

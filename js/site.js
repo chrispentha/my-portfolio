@@ -4,7 +4,7 @@ const serviceId = 'service_cto3tnm';
 const templateId = 'template_qakrytd';
 
 // Google reCAPTCHA
-const siteKey = '6LdMZEoqAAAAAMtdFnOjePamq4zjzDpC1aA9ptNC';
+const siteKey = '6LfIl1AqAAAAACGpIWQDfLxIHcJSbKT3L16vFJmo';
 
 // Toggle Menu
 const toggleButton = $('.navbar-toggler');
