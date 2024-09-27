@@ -9,20 +9,22 @@ const { RecaptchaEnterpriseServiceClient } = require('@google-cloud/recaptcha-en
 const { LocalStorage } = require('node-localstorage');
 const localStorage = new LocalStorage('../local_storage');
 
+require('dotenv').config({ path: './config.env' });
+
 // Create an Express app
 const app = express();
-const port = process.env.PORT || 3000;
+const port = process.env.PORT;
 
 // Count Total Visitors
 const visitorFile = path.join(__dirname, 'local_storage', 'visitors');
 
 // Set up Google Cloud Recaptcha client
 const client = new RecaptchaEnterpriseServiceClient();
-const projectID = 'savvy-webbing-341304';
+const projectID = process.env.PROJECT_ID;
 
 // Google reCAPTCHA secret key
-const gRecaptchaUrl = 'https://www.google.com/recaptcha/api/siteverify';
-const gRecaptchaSecretKey = '6LdMZEoqAAAAAChSlA8D8GDwxyCBzMJ6oth6V2dT';
+const gRecaptchaUrl = process.env.G_RECAPTCHA_URL;
+const gRecaptchaSecretKey = process.env.G_RECAPTCHA_SECRET_KEY;
 
 // Function for get total visitors
 function getVisitorCount() {
