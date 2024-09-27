@@ -73,7 +73,8 @@ app.get('/', (req, res) => {
       file = 'index-indo.html';
       break;
     default:
-      file = 'not-found.html';
+      file = 'index.html';
+      // file = 'not-found.html';
   }
 
   res.sendFile(path.join(__dirname, '..', file), {
