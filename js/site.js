@@ -85,7 +85,7 @@ $(document).ready(function () {
         redirectBasedOnLanguage(selectedLang); // Redirect based on the selected language
 
         // Save Selected Lang in Backend Local Storage for reason: We don't want show the file name in URL
-        $.post('/save-lang', { lang: selectedLang });
+        // $.post('/save-lang', { lang: selectedLang });
     });
 
     // Handle Carousel
@@ -255,17 +255,8 @@ function showLanguage(lang) {
 }
 
 function redirectBasedOnLanguage(lang) {
-    // // Check the selected language and redirect accordingly
-    // if (lang === 'en') {
-    //     window.location.href = 'index.html'; // Redirect to the English version
-    // } else if (lang === 'id') {
-    //     window.location.href = 'index-indo.html'; // Redirect to the Indonesian version
-    // } else {
-    //     // Default Page if lang is null or unrecognized
-    //     window.location.href = 'index.html'; // Redirect to the default page
-    // }
-
-    window.location.reload();
+    // Redirect to the Indonesian or English version
+    window.location.href = lang === 'id' ? 'index-indo.html' : '/';
 }
 
 function validateToken(token) {

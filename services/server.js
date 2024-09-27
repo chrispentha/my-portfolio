@@ -6,13 +6,14 @@ const cors = require('cors');
 const path = require('path');
 const fs = require('fs');
 const { RecaptchaEnterpriseServiceClient } = require('@google-cloud/recaptcha-enterprise');
-const { LocalStorage } = require('node-localstorage');
-const localStorage = new LocalStorage('./services/local_storage');
+// const { LocalStorage } = require('node-localstorage');
+// const localStorage = new LocalStorage('./services/local_storage');
 
 require('dotenv').config({ path: './services/config.env' });
 
 // Create an Express app
 const app = express();
+const env = process.env.ENVIRONMENT;
 const port = process.env.PORT;
 
 // Count Total Visitors
@@ -43,7 +44,7 @@ function incrementVisitorCount() {
 
 // Use cMiddleware
 app.use((req, res, next) => {
-  if (req.headers['x-forwarded-proto'] !== 'https') {
+  if (env === 'PROD' && req.headers['x-forwarded-proto'] !== 'https') {
     return res.redirect(`https://${req.headers.host}${req.url}`);
   }
 
@@ -62,7 +63,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // Define a route for the homepage
 app.get('/', (req, res) => {
   const totalVisitors = incrementVisitorCount();
-  const lang = localStorage.getItem('lang');
+  const lang = null; //localStorage.getItem('lang');
   let file = null;
 
   switch (lang) {
@@ -85,10 +86,10 @@ app.get('/', (req, res) => {
 });
 
 // Save Lang
-app.post('/save-lang', (req, res) => {
-  localStorage.setItem('lang', req.body.lang);
-  res.sendStatus(200);
-});
+// app.post('/save-lang', (req, res) => {
+//   localStorage.setItem('lang', req.body.lang);
+//   res.sendStatus(200);
+// });
 
 // Route to validate reCAPTCHA token
 app.post('/validate-token', async (req, res) => {
