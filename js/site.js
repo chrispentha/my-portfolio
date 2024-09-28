@@ -377,8 +377,8 @@ function autoRunTheme() {
     const today = new Date().toLocaleDateString(); // Format today's date: 'MM/DD/YYYY'
     const currentHour = new Date().getHours();
     const lastRunDate = localStorage.getItem('last-run-date');
-    const isDayRan = localStorage.getItem('day-ran');
-    const isNightRan = localStorage.getItem('night-ran');
+    const isDayRan = localStorage.getItem('day-ran') === 'true';
+    const isNightRan = localStorage.getItem('night-ran') === 'true';
 
     // Check if the last run date is not today
     if (lastRunDate !== today) {
