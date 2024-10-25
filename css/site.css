@@ -326,7 +326,7 @@ footer {
 
 .card {
     width: auto;
-    height: 250px;
+    height: auto;
     box-sizing: border-box;
     /* border: none; */
     border: 1px solid rgba(0, 0, 0, 0.1);
@@ -337,6 +337,7 @@ footer {
 
 .card-img-top {
     border-bottom: 5px solid #4b4f53;
+    height: 150px;
 }
 
 .card-body {
