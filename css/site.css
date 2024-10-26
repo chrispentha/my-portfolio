@@ -12,14 +12,6 @@
     transform: none !important;
 } */
 
-html, body {
-    will-change: scroll-position;
-}
-
-[data-aos] {
-    will-change: transform, opacity;
-}
-
 #loading-spinner-init {
     position: fixed;
     width: 100vw;
