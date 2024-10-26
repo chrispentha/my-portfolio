@@ -55,13 +55,24 @@ $(document).ready(function () {
         }
     });
 
+    // $(document).on('click', function (event) {
+    //     // Check if the toggle button is not collapsed, the menu is shown,
+    //     // and the click target is not inside a dropdown item
+    //     if (!toggleButton.hasClass('collapsed')
+    //         && menu.hasClass('show')
+    //         && !$(event.target).closest('.nav-item.dropdown').length) {
+    //         toggleButton.click(); // Simulate a click on the toggle button to close the menu
+    //     }
+    // });
+
     $(document).on('click', function (event) {
         // Check if the toggle button is not collapsed, the menu is shown,
         // and the click target is not inside a dropdown item
-        if (!toggleButton.hasClass('collapsed')
-            && menu.hasClass('show')
-            && !$(event.target).closest('.nav-item.dropdown').length) {
-            toggleButton.click(); // Simulate a click on the toggle button to close the menu
+        if (!toggleButton.hasClass('collapsed') && menu.hasClass('show')) {
+            if (!$(event.target).closest('.navbar-toggler').length && 
+                !$(event.target).closest('.dropdown').length) {
+                    toggleButton.click(); // Simulate a click on the toggle button to close the menu
+            }
         }
     });
 
