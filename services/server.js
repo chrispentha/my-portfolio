@@ -94,12 +94,30 @@ app.get('/', (req, res) => {
 // Route to validate reCAPTCHA token
 app.post('/validate-token', async (req, res) => {
   const token = req.body['g_recaptcha_token'];
+  const lang = req.body['lang'];
+
+  const messages = {
+    en: {
+      tokenEmpty: 'No reCAPTCHA token provided.',
+      tokenSuccess: 'reCAPTCHA validation succeeded.',
+      tokenFailed: 'reCAPTCHA validation failed.',
+      serverError: 'Server error during reCAPTCHA validation.'
+    },
+    id: {
+      tokenEmpty: 'Token reCAPTCHA kosong.',
+      tokenSuccess: 'Berhasil validasi reCAPTCHA.',
+      tokenFailed: 'Gagal validasi reCAPTCHA.',
+      serverError: 'Gagal selama validasi reCAPTCHA.'
+    }
+  };
+
+  const messageSet = messages[lang] || messages['en'];
 
   if (!token || token === '') {
     return res.status(400).json(
       {
         success: false
-        , message: 'No reCAPTCHA token provided.'
+        ,message: messageSet.tokenEmpty
       }
     );
   }
@@ -117,14 +135,14 @@ app.post('/validate-token', async (req, res) => {
       return res.json(
         {
           success: true
-          , message: 'reCAPTCHA validation succeeded.'
+          , message: messageSet.tokenSuccess
         }
       );
     } else {
       return res.status(400).json(
         {
           success: false
-          , message: 'reCAPTCHA validation failed.'
+          , message: messageSet.tokenFailed
         }
       );
     }
@@ -132,7 +150,7 @@ app.post('/validate-token', async (req, res) => {
     return res.status(500).json(
       {
         success: false
-        , message: 'Server error during reCAPTCHA validation.'
+        , message: messageSet.serverError
       }
     );
   }

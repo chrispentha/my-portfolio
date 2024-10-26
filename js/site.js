@@ -172,18 +172,38 @@ $(document).ready(function () {
             }
 
             // Process Validate
-            validateToken(token).then(isSuccessValidate => {
+            validateToken(token, storedLang).then(isSuccessValidate => {
+                // Prepare Messages
+                const messages = {
+                    en: {
+                        title: 'Failed Sent Message!',
+                        failedRecaptcha: 'Please check the reCAPTCHA.',
+                        errorRecaptcha: 'Oops, something went wrong. Please try again later.',
+                        consoleFailedRecaptcha: 'reCAPTCHA validation failed!',
+                        consoleErrorRecaptcha: 'reCAPTCHA token validation failed! Details: '
+                    },
+                    id: {
+                        title: 'Gagal Mengirim Pesan!',
+                        failedRecaptcha: 'Silahkan periksa reCAPTCHA.',
+                        errorRecaptcha: 'Ups, ada yang tidak beres. Silakan coba lagi nanti.',
+                        consoleFailedRecaptcha: 'Validasi reCAPTCHA gagal!',
+                        consoleErrorRecaptcha: 'Validasi token reCAPTCHA gagal! Rincian: '
+                    }
+                };
+                
+                const messageSet = messages[storedLang] || messages['en'];
+
                 if (isSuccessValidate) {
-                    sendEmail(token); // Send email if validation is successful
+                    sendEmail(token, storedLang); // Send email if validation is successful
                 } else {
                     // Show alert if validation fails
-                    swalShow(false, 'Message Failed!', 'Please check the reCAPTCHA.');
-                    console.error('reCAPTCHA validation failed!');
+                    swalShow(false, messageSet.title, messageSet.failedRecaptcha);
+                    console.error(messageSet.consoleFailedRecaptcha);
                 }
             }).catch(error => {
                 // Handle error during token validation
-                swalShow(false, 'Message Failed!', 'Oops, something went wrong. Please try again later.');
-                console.error('Token validation failed! Details: ', error);
+                swalShow(false, messageSet.title, messageSet.errorRecaptcha);
+                console.error(messageSet.consoleErrorRecaptcha, error);
             });
         });
     });
@@ -259,14 +279,15 @@ function redirectBasedOnLanguage(lang) {
     window.location.href = lang === 'id' ? 'index-indo.html' : '/';
 }
 
-function validateToken(token) {
+function validateToken(token, lang) {
     // Send the reCAPTCHA token to the backend for validation
     return $.ajax({
         url: '/validate-token',
         method: 'POST',
         contentType: 'application/json',
         data: JSON.stringify({
-            g_recaptcha_token: token
+            g_recaptcha_token: token,
+            lang: lang
         }),
         dataType: 'json'
     }).done(function (data) {
@@ -278,7 +299,7 @@ function validateToken(token) {
     });
 }
 
-function sendEmail(token) {
+function sendEmail(token, lang) {
     // Get the form values
     const name = $('#name').val();
     const email = $('#email').val();
@@ -297,15 +318,37 @@ function sendEmail(token) {
         'g-recaptcha-response': token
     };
 
+    // Setup Messages
+    const messagesSentEmail = {
+        en: {
+            titleSentMessageSuccess: 'Success Sent Message!',
+            titleSentMessageFailed: 'Failed Sent Message!',
+            titleConsoleSuccess: 'Success!',
+            titleConsoleError: 'Failed to send email: ',
+            sentMessageSuccess: 'Your message has been sent successfully!',
+            sentMessageError: 'Oops, something went wrong. Please try again later.'
+        },
+        id: {
+            titleSentMessageSuccess: 'Berhasil Mengirim Pesan!',
+            titleSentMessageFailed: 'Gagal Mengirim Pesan!',
+            titleConsoleSuccess: 'Berhasil!',
+            titleConsoleError: 'Gagal mengirim pesan: ',
+            sentMessageSuccess: 'Pesan Anda berhasil terkirim!',
+            sentMessageError: 'Ups, ada yang tidak beres. Silakan coba lagi nanti.'
+        }
+    };
+    
+    const messageSetSentEmail = messagesSentEmail[lang] || messagesSentEmail['en'];
+
     // Send email using EmailJS
     emailjs.send(serviceId, templateId, templateParams)
         .then(function (response) {
             resetForm();
-            swalShow(true, 'Message Sent!', 'Your message has been sent successfully!');
-            console.log('Success!', response.status, response.text);
+            swalShow(true, messageSetSentEmail.titleSentMessageSuccess, messageSetSentEmail.sentMessageSuccess);
+            console.log(messageSetSentEmail.titleConsoleSuccess, response.status, response.text);
         }).catch(function (error) {
-            swalShow(false, 'Message Failed!', 'Oops, something went wrong. Please try again later.');
-            console.error('Failed to send email:', error);
+            swalShow(false, messageSetSentEmail.titleSentMessageFailed, messageSetSentEmail.sentMessageError);
+            console.error(messageSetSentEmail.titleConsoleError, error);
         }).finally(function () {
             grecaptcha.reset();
 
