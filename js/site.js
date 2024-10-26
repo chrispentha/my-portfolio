@@ -150,7 +150,7 @@ $(document).ready(function () {
 
             $('html, body').animate({
                 scrollTop: scrollTo // Animate scroll
-            }, 0); // Set duration for a smoother experience
+            }, 100); // Set duration for a smoother experience
         }
     });
 
@@ -265,7 +265,7 @@ $(window).on('load', function () {
             AOS.init({
                 duration: 750, // Animation Duration (in milliseconds)
                 offset: 50, // Offset from top section viewport
-                once: true, // Show once or more
+                once: false, // Show once or more
                 disable: false // Disable or Enable
                 // disable: function () {
                 //   return $(window).width() < 1024; // Non-active AOS in mobile screen
