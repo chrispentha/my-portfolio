@@ -557,7 +557,7 @@ footer {
     .carousel-control-prev-icon,
     .carousel-control-next-icon {
         /* border-radius: 10%; */
-        height: 1.7%;
+        height: 1.5%;
     }
 
     .sticky-whatsapp {
@@ -614,11 +614,6 @@ footer {
 
     .hero p {
         font-size: 1.2rem;
-    }
-
-    .carousel-control-prev-icon,
-    .carousel-control-next-icon {
-        height: 1.5%;
     }
 
     .sticky-whatsapp {
