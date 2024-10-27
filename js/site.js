@@ -14,6 +14,10 @@ const menu = $('.navbar-collapse');
 const darkModeToggle = $('#darkModeToggle');
 const body = $('body');
 
+// Carousel
+const totalPages = 3;
+let currentPage = 1;
+
 // Send Email
 const sendButton = $('#send-button');
 const buttonText = $('#button-text');
@@ -108,6 +112,23 @@ $(document).ready(function () {
 
     myCarousel.on('slide.bs.carousel', function () {
         AOS.refreshHard(); // Pause AOS animations while carousel slides
+    });
+
+    // Initialize the pages display text
+    updatePageText(storedLang);
+
+    // Apply debounce to event listeners: carousel-prev, carousel-next
+    // $('#carousel-prev').on('click', debounce(() => {}, 1000)); // Debounce delay to prevent double-clicks
+    // $('#carousel-next').on('click', debounce(() => {}, 1000)); // Debounce delay to prevent double-clicks
+
+    // Event listener for 'slid.bs.carousel' to update page after slide transition
+    $('#portfolioCarousel').on('slid.bs.carousel', function () {
+        // Update current page based on active item index
+        const activeIndex = $('#portfolioCarousel .carousel-item.active').index();
+        currentPage = (activeIndex % totalPages) + 1; // Adjust to 1-based page numbering
+
+        // Update page text after slide completes
+        updatePageText(storedLang);
     });
 
     // Define the options for the Intersection Observer
@@ -288,6 +309,15 @@ function showLanguage(lang) {
 function redirectBasedOnLanguage(lang) {
     // Redirect to the Indonesian or English version
     window.location.href = lang === 'id' ? 'index-indo.html' : '/';
+}
+
+function updatePageText(lang) {
+    if (lang === 'en') {
+        $('.pages').text(`${currentPage} of ${totalPages}`);
+    }
+    else {
+        $('.pages').text(`${currentPage} dari ${totalPages}`);
+    }
 }
 
 function validateToken(token, lang) {
