@@ -615,6 +615,22 @@ footer {
     .hero p {
         font-size: 1.2rem;
     }
+
+    .carousel-control-prev-icon,
+    .carousel-control-next-icon {
+        height: 1.5%;
+    }
+
+    .sticky-whatsapp {
+        bottom: 10px;
+        right: 10px;
+        width: 55px;
+        height: 55px;
+    }
+
+    .sticky-whatsapp i {
+        font-size: 35px;
+    }
 }
 
 /* Media Query for screen 1024px */
