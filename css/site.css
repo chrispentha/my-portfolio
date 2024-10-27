@@ -531,6 +531,10 @@ footer {
     .sticky-whatsapp i {
         font-size: 35px;
     }
+
+    .card {
+        height: 460px;
+    }
 }
 
 /* Media Query for screen 375px */
@@ -549,6 +553,10 @@ footer {
 
     .sticky-whatsapp i {
         font-size: 35px;
+    }
+
+    .card {
+        height: 410px;
     }
 }
 
@@ -569,6 +577,10 @@ footer {
 
     .sticky-whatsapp i {
         font-size: 35px;
+    }
+
+    .card {
+        height: 390px;
     }
 }
 
@@ -628,7 +640,19 @@ footer {
     }
 }
 
+@media (min-width: 426px) and (max-width: 768px) {
+    .card {
+        height: 565px;
+    }
+}
+
 /* Media Query for screen 1024px */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .card {
+        height: 460px;
+    }
+}
+
 @media (min-width: 1024px) {
     .hero {
         padding-top: calc(10px + 15vh);
