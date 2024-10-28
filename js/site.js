@@ -248,10 +248,10 @@ $(document).ready(function () {
         // Construct the message based on stored language
         switch (storedLang) {
             case 'en':
-                message = "Hello,\n\nI am interested in your services and would like to know more about the details and mechanisms involved.\nCould you please provide more information?\n\nThank you.";
+                message = "Hello,\n\nI am interested in your services and would like to know more about the details and mechanisms involved.\n\nCould you please provide more information?\n\nThank you.";
                 break;
             case 'id':
-                message = "Halo,\n\nSaya tertarik dengan layanan Anda dan ingin mengetahui lebih lanjut tentang detail serta mekanisme yang terlibat.\nBisakah Anda memberikan informasi lebih lanjut?\n\nTerima kasih.";
+                message = "Halo,\n\nSaya tertarik dengan layanan Anda dan ingin mengetahui lebih lanjut tentang detail serta mekanisme yang terlibat.\n\nBisakah Anda memberikan informasi lebih lanjut?\n\nTerima kasih.";
                 break;
             default:
                 message = ''; // Default to an empty message
