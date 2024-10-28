@@ -154,6 +154,42 @@ $(document).ready(function () {
     });
 
     // Scroll to target section with offset
+    // $('a[href^="#"]').on('click', function (event) {
+    //     // Check if the clicked element is not #carousel-prev or #carousel-next
+    //     if (this.id === 'carousel-prev' || this.id === 'carousel-next') {
+    //         return; // Skip the function for these elements
+    //     }
+
+    //     event.preventDefault(); // Prevent the default anchor behavior
+
+    //     const target = $(this.getAttribute('href')); // Get the target element
+
+    //     if (target.length) { // Check if the target exists
+    //         // Calculate offset (e.g., adjust based on navbar height)
+    //         const offset = 70; // Adjust this value as needed
+    //         const scrollTo = target.offset().top - offset; // Calculate scroll position
+
+    //         $('html, body').animate({
+    //             scrollTop: scrollTo // Animate scroll
+    //         }, 100, 'swing'); // Set duration for a smoother experience
+    //     }
+    // });
+
+    function smoothScrollTo(target, duration = 500) {
+        const start = window.scrollY;
+        const targetPosition = target.getBoundingClientRect().top;
+        const startTime = performance.now();
+    
+        function scrollStep(currentTime) {
+            const elapsed = currentTime - startTime;
+            const progress = Math.min(elapsed / duration, 1);
+            window.scrollTo(0, start + targetPosition * progress);
+            if (progress < 1) requestAnimationFrame(scrollStep);
+        }
+    
+        requestAnimationFrame(scrollStep);
+    }
+
     $('a[href^="#"]').on('click', function (event) {
         // Check if the clicked element is not #carousel-prev or #carousel-next
         if (this.id === 'carousel-prev' || this.id === 'carousel-next') {
@@ -162,17 +198,11 @@ $(document).ready(function () {
 
         event.preventDefault(); // Prevent the default anchor behavior
 
+        //const target = document.querySelector(this.getAttribute('href'));
         const target = $(this.getAttribute('href')); // Get the target element
 
-        if (target.length) { // Check if the target exists
-            // Calculate offset (e.g., adjust based on navbar height)
-            const offset = 70; // Adjust this value as needed
-            const scrollTo = target.offset().top - offset; // Calculate scroll position
-
-            $('html, body').animate({
-                scrollTop: scrollTo // Animate scroll
-            }, 100); // Set duration for a smoother experience
-        }
+        if (target) 
+            smoothScrollTo(target, 500); // Adjust duration as needed
     });
 
     // Hide loading-spinner on Send Message Button for first rendered
