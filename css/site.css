@@ -541,7 +541,7 @@ footer {
 @media (min-width: 321px) and (max-width: 375px) {
     .carousel-control-prev-icon,
     .carousel-control-next-icon {
-        height: 1.5%;
+        height: 1.4%;
     }
 
     .sticky-whatsapp {
@@ -565,7 +565,7 @@ footer {
     .carousel-control-prev-icon,
     .carousel-control-next-icon {
         /* border-radius: 10%; */
-        height: 1.5%;
+        height: 1.4%;
     }
 
     .sticky-whatsapp {
