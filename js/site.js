@@ -183,6 +183,19 @@ $(document).ready(function () {
         publicKey: publicKey,
     });
 
+    // // Email Validation Text Input
+    // $('#name').on('keyup', function() {
+    //     emailValidation();
+    // });
+
+    // $('#email').on('keyup', function() {
+    //     emailValidation();
+    // });
+
+    // $('#message').on('keyup', function() {
+    //     emailValidation();
+    // });
+
     // Send Email via EmailJS
     $('#contact-form').on('submit', function (event) {
         event.preventDefault(); // Prevent default form submission
@@ -321,6 +334,19 @@ function updatePageText(lang) {
     }
 }
 
+function emailValidation() {
+    const name = $('#name').val();
+    const email = $('#email').val();
+    const message = $('#message').val();
+
+    if (name === '' || email === '' || message === '') {
+        sendButton.prop('disabled', true);
+    }
+    else {
+        sendButton.prop('disabled', false);
+    }
+}
+
 function validateToken(token, lang) {
     // Send the reCAPTCHA token to the backend for validation
     return $.ajax({
@@ -363,16 +389,16 @@ function sendEmail(token, lang) {
     // Setup Messages
     const messagesSentEmail = {
         en: {
-            titleSentMessageSuccess: 'Success Sent Message!',
-            titleSentMessageFailed: 'Failed Sent Message!',
+            titleSentMessageSuccess: 'Success!',
+            titleSentMessageFailed: 'Failed!',
             titleConsoleSuccess: 'Success!',
             titleConsoleError: 'Failed to send email: ',
             sentMessageSuccess: 'Your message has been sent successfully!',
             sentMessageError: 'Oops, something went wrong. Please try again later.'
         },
         id: {
-            titleSentMessageSuccess: 'Berhasil Mengirim Pesan!',
-            titleSentMessageFailed: 'Gagal Mengirim Pesan!',
+            titleSentMessageSuccess: 'Berhasil!',
+            titleSentMessageFailed: 'Gagal!',
             titleConsoleSuccess: 'Berhasil!',
             titleConsoleError: 'Gagal mengirim pesan: ',
             sentMessageSuccess: 'Pesan Anda berhasil terkirim!',
