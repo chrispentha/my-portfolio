@@ -393,7 +393,7 @@ function sendEmail(token, lang) {
             titleSentMessageFailed: 'Failed!',
             titleConsoleSuccess: 'Success!',
             titleConsoleError: 'Failed to send email: ',
-            sentMessageSuccess: 'Your message has been sent successfully!',
+            sentMessageSuccess: 'Your message has been sent successfully',
             sentMessageError: 'Oops, something went wrong. Please try again later.'
         },
         id: {
@@ -401,7 +401,7 @@ function sendEmail(token, lang) {
             titleSentMessageFailed: 'Gagal!',
             titleConsoleSuccess: 'Berhasil!',
             titleConsoleError: 'Gagal mengirim pesan: ',
-            sentMessageSuccess: 'Pesan Anda berhasil terkirim!',
+            sentMessageSuccess: 'Pesan Anda berhasil terkirim',
             sentMessageError: 'Ups, ada yang tidak beres. Silakan coba lagi nanti.'
         }
     };
