@@ -397,9 +397,9 @@ function sendEmail(token, lang) {
             sentMessageError: 'Oops, something went wrong. Please try again later.'
         },
         id: {
-            titleSentMessageSuccess: 'Berhasil!',
+            titleSentMessageSuccess: 'Sukses!',
             titleSentMessageFailed: 'Gagal!',
-            titleConsoleSuccess: 'Berhasil!',
+            titleConsoleSuccess: 'Sukses!',
             titleConsoleError: 'Gagal mengirim pesan: ',
             sentMessageSuccess: 'Pesan Anda berhasil terkirim',
             sentMessageError: 'Ups, ada yang tidak beres. Silakan coba lagi nanti.'
