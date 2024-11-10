@@ -186,58 +186,59 @@ $(document).ready(function () {
     // Send Email via EmailJS
     $('#contact-form').on('submit', function (event) {
         event.preventDefault(); // Prevent default form submission
+        sendEmail(null, storedLang);
 
-        // Validate the reCAPTCHA token
-        grecaptcha.ready(function () {
-            const token = grecaptcha.getResponse(); // Get the reCAPTCHA response token
+        // // Validate the reCAPTCHA token
+        // grecaptcha.ready(function () {
+        //     const token = grecaptcha.getResponse(); // Get the reCAPTCHA response token
 
-            // reCAPTCHA Checked?
-            if (!token || token === '') {
-                recaptchaWarning.removeClass('recaptcha-warning-hide');
-                recaptchaWarning.addClass('recaptcha-warning-show');
+        //     // reCAPTCHA Checked?
+        //     if (!token || token === '') {
+        //         recaptchaWarning.removeClass('recaptcha-warning-hide');
+        //         recaptchaWarning.addClass('recaptcha-warning-show');
 
-                return;
-            }
-            else {
-                recaptchaWarning.removeClass('recaptcha-warning-show');
-                recaptchaWarning.addClass('recaptcha-warning-hide');
-            }
+        //         return;
+        //     }
+        //     else {
+        //         recaptchaWarning.removeClass('recaptcha-warning-show');
+        //         recaptchaWarning.addClass('recaptcha-warning-hide');
+        //     }
 
-            // Process Validate
-            validateToken(token, storedLang).then(isSuccessValidate => {
+            // // Process Validate
+            // validateToken(token, storedLang).then(isSuccessValidate => {
                 // Prepare Messages
-                const messages = {
-                    en: {
-                        title: 'Failed Sent Message!',
-                        failedRecaptcha: 'Please check the reCAPTCHA.',
-                        errorRecaptcha: 'Oops, something went wrong. Please try again later.',
-                        consoleFailedRecaptcha: 'reCAPTCHA validation failed!',
-                        consoleErrorRecaptcha: 'reCAPTCHA token validation failed! Details: '
-                    },
-                    id: {
-                        title: 'Gagal Mengirim Pesan!',
-                        failedRecaptcha: 'Silahkan periksa reCAPTCHA.',
-                        errorRecaptcha: 'Ups, ada yang tidak beres. Silakan coba lagi nanti.',
-                        consoleFailedRecaptcha: 'Validasi reCAPTCHA gagal!',
-                        consoleErrorRecaptcha: 'Validasi token reCAPTCHA gagal! Rincian: '
-                    }
-                };
+                // const messages = {
+                //     en: {
+                //         title: 'Failed Sent Message!',
+                //         failedRecaptcha: 'Please check the reCAPTCHA.',
+                //         errorRecaptcha: 'Oops, something went wrong. Please try again later.',
+                //         consoleFailedRecaptcha: 'reCAPTCHA validation failed!',
+                //         consoleErrorRecaptcha: 'reCAPTCHA token validation failed! Details: '
+                //     },
+                //     id: {
+                //         title: 'Gagal Mengirim Pesan!',
+                //         failedRecaptcha: 'Silahkan periksa reCAPTCHA.',
+                //         errorRecaptcha: 'Ups, ada yang tidak beres. Silakan coba lagi nanti.',
+                //         consoleFailedRecaptcha: 'Validasi reCAPTCHA gagal!',
+                //         consoleErrorRecaptcha: 'Validasi token reCAPTCHA gagal! Rincian: '
+                //     }
+                // };
                 
-                const messageSet = messages[storedLang] || messages['en'];
+                //const messageSet = messages[storedLang] || messages['en'];
 
-                if (isSuccessValidate) {
-                    sendEmail(token, storedLang); // Send email if validation is successful
-                } else {
-                    // Show alert if validation fails
-                    swalShow(false, messageSet.title, messageSet.failedRecaptcha);
-                    console.error(messageSet.consoleFailedRecaptcha);
-                }
-            }).catch(error => {
-                // Handle error during token validation
-                swalShow(false, messageSet.title, messageSet.errorRecaptcha);
-                console.error(messageSet.consoleErrorRecaptcha, error);
-            });
-        });
+                // if (isSuccessValidate) {
+                //     sendEmail(token, storedLang); // Send email if validation is successful
+                // } else {
+                //     // Show alert if validation fails
+                //     swalShow(false, messageSet.title, messageSet.failedRecaptcha);
+                //     console.error(messageSet.consoleFailedRecaptcha);
+                // }
+            // }).catch(error => {
+            //     // Handle error during token validation
+            //     swalShow(false, messageSet.title, messageSet.errorRecaptcha);
+            //     console.error(messageSet.consoleErrorRecaptcha, error);
+            // });
+        // });
     });
 
     // WhatsApp button click event
@@ -391,10 +392,11 @@ function sendEmail(token, lang) {
             swalShow(false, messageSetSentEmail.titleSentMessageFailed, messageSetSentEmail.sentMessageError);
             console.error(messageSetSentEmail.titleConsoleError, error);
         }).finally(function () {
-            grecaptcha.reset();
+            //grecaptcha.reset();
 
             // Re-enable the button
-            sendButton.prop('disabled', true);
+            //sendButton.prop('disabled', true);
+            sendButton.prop('disabled', false);
             buttonText.show();
             loadingSpinner.hide();
         });
