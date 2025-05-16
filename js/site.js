@@ -15,7 +15,7 @@ const darkModeToggle = $('#darkModeToggle');
 const body = $('body');
 
 // Carousel
-const totalPages = 4;
+const totalPages = 3;
 let currentPage = 1;
 
 // Send Email
